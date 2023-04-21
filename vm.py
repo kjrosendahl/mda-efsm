@@ -1,7 +1,13 @@
+from mda import mda_efsm
+from data import DS1, DS2
+from absfact import CF1, CF2
+
 class vm1: 
     
     def __init__(self): 
-        return 
+        self.m = mda_efsm() 
+        self.d = DS1() 
+        self.af = CF1() 
 
     def create(self, p: int): 
         print('create function called with ', p)
@@ -31,13 +37,15 @@ class vm1:
 class vm2: 
     
     def __init__(self): 
-        return 
+        self.m = mda_efsm() 
+        self.d = DS2() 
+        self.af = CF2() 
 
     def CREATE(self, p: float): 
         print('CREATE function called with ', p)
     
     def COIN(self, v: int): 
-        print('COIN function called ')
+        print('COIN function called with ', v)
 
     def CARD(self, x: int): 
         print('CARD called with ', x, 'funds ')
