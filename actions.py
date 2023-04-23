@@ -57,13 +57,13 @@ class DisposeAdditives():
 class DisposeSugar(DisposeAdditives): 
     
     def DisposeAdditives(A): 
-        if A['1'] == 1: 
+        if A[1]: 
             print('Sugar disposed.')
 
 class DisposeCreamSugar(DisposeAdditives): 
     
     def DisposeAdditives(A): 
-        if A['1'] == 1: 
+        if A[1]: 
             print('Cream disposed.')
-        if A['2'] == 1: 
+        if A[2]: 
             print('Sugar disposed.') 
