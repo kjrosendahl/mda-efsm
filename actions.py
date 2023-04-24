@@ -4,7 +4,10 @@ class StorePrice:
         return 
 
 class StorePrice_1(StorePrice): 
-    pass 
+    
+    def StorePrice(self, d): 
+        d.price = d.temp_p
+        print('Price set at:', d.price)
 
 class ZeroCF: 
 
@@ -12,7 +15,10 @@ class ZeroCF:
         return 
 
 class ZeroCF_1(ZeroCF): 
-    pass 
+    
+    def ZeroCF(self, d): 
+        d.cf = 0 
+        print('Funds zeroed out')
 
 class IncreaseCF: 
 
@@ -20,7 +26,10 @@ class IncreaseCF:
         return 
 
 class IncreaseCF_1(IncreaseCF): 
-    pass 
+    
+    def IncreaseCF(self, d): 
+        d.cf += d.temp_v 
+        print('Funds increased to:', d.cf)
 
 class ReturnCoins(): 
 
@@ -28,7 +37,10 @@ class ReturnCoins():
         return 
 
 class ReturnCoins_1(ReturnCoins): 
-    pass 
+    
+    def ReturnCoins(self, d): 
+        print('Returning', d.temp_v, 'coin(s)') 
+        d.temp_v = 0 
 
 class DisposeDrink(): 
 
@@ -37,33 +49,33 @@ class DisposeDrink():
 
 class DisposeTeaLatte(DisposeDrink): 
     
-    def DisposeDrink(d: int): 
+    def DisposeDrink(self, d: int): 
         if d == 1: 
-            print('Cup of tea disposed.')
+            print('Cup of tea disposed')
         elif d == 2: 
-            print('Cup of latte disposed.')
+            print('Cup of latte disposed')
 
 class DisposeCoffee(DisposeDrink): 
     
-    def DisposeDrink(d: int): 
+    def DisposeDrink(self, d: int): 
         if d == 1: 
-            print('Cup of coffee disposed.')
+            print('Cup of coffee disposed')
 
-class DisposeAdditives(): 
+class DisposeAdditive(): 
 
     def __init__(self): 
         return 
 
-class DisposeSugar(DisposeAdditives): 
+class DisposeSugar(DisposeAdditive): 
     
-    def DisposeAdditives(A): 
+    def DisposeAdditive(self, A): 
         if A[1]: 
-            print('Sugar disposed.')
+            print('Sugar disposed')
 
-class DisposeCreamSugar(DisposeAdditives): 
+class DisposeCreamSugar(DisposeAdditive): 
     
-    def DisposeAdditives(A): 
+    def DisposeAdditive(self, A): 
         if A[1]: 
-            print('Cream disposed.')
+            print('Cream disposed')
         if A[2]: 
-            print('Sugar disposed.') 
+            print('Sugar disposed') 

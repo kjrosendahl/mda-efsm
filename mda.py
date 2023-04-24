@@ -3,24 +3,28 @@ from op import op
 
 class mda_efsm: 
     
-    def __init__(self): 
+    def __init__(self, op): 
 
         # initialize list of states 
-        self.LS = [start(self), no_cups(self), idle(self), ready(self)]
+        self.LS = [start(self, op), no_cups(self, op), idle(self, op), ready(self, op)]
         # initialize pointer to start state 
         self.S = self.LS[0]
 
         # initialize cups and additive list 
         self.cups = 0 
         self.A = None 
-
-        print('MDA-EFSM created with', self.cups, 'cups')
         
     def change_state(self, ID): 
-        old = self.S 
         self.S = self.LS[ID] 
-        new = self.S 
-        print('Transition from state ', old, ' to state ', new)
+        
+        if ID == 1: 
+            print('There are no cups!')
+        elif ID == 2: 
+            print('Idle...')
+        elif ID == 3: 
+            print('Ready to dispense!')
+
+        # print('Transition from state ', old, ' to state ', new)
     
     def create(self): 
         self.S.create() 
@@ -48,12 +52,12 @@ class mda_efsm:
     
 class states(): 
 
-    def __init__(self, m):
+    def __init__(self, m, op):
 
         # set MDA-EFSM pointer for state 
         self.m = m 
         # add OP pointer 
-        self.p = op() 
+        self.p = op
 
     # abstract methods 
     def create(self): 
@@ -90,20 +94,21 @@ class start(states):
 class no_cups(states): 
 
     def insert_cups(self, n: int): 
-        print('Inserting', n, 'cups')
+        print('Inserting', n, 'cups(s)')
         # increase cups 
         self.m.cups += n
         print('Total cups:', self.m.cups)
+        self.p.ZeroCF()
         # transition to idle state  
         self.m.change_state(2)
         
-    def coin(self): 
+    def coin(self, f:int): 
         self.p.ReturnCoins() 
 
 class idle(states): 
 
     def insert_cups(self, n: int): 
-        print('inserting ', n, 'cups')
+        print('inserting ', n, 'cup(s)')
         # increase cups 
         self.m.cups += n 
         print('Total cups:', self.m.cups)

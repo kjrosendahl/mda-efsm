@@ -6,16 +6,16 @@ class data:
 class DS1(data): 
         
     def __init__(self): 
-        self.temp_p = float 
-        self.temp_v = float 
-        self.price = float 
-        self.cf = float 
+        self.temp_p = float(0)
+        self.temp_v = float(0)
+        self.price = float(0)
+        self.cf = float(0)
     
 class DS2(data): 
         
     def __init__(self): 
-        self.temp_p = float  
-        self.temp_v = int 
-        self.price = float 
-        self.cf = int  
+        self.temp_p = float(0) 
+        self.temp_v = int(0)
+        self.price = float(0)
+        self.cf = int(0)
 

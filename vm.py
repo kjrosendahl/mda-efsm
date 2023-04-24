@@ -1,71 +1,83 @@
 from mda import mda_efsm
-from data import DS1, DS2
 from absfact import CF1, CF2
 
 class vm1: 
     
-    def __init__(self): 
-        self.m = mda_efsm() 
-        self.d = DS1() 
-        self.af = CF1() 
+    def __init__(self, af, m): 
+        # make concrete factory 
+        self.af = af
+        self.m = m
+        self.d = self.af.d
 
     def create(self, p: int): 
-        print('create function called with ', p)
+        self.d.temp_p = p 
+        self.m.create() 
     
     def coin(self, v: float): 
-        print('coin function called with ', v)
+        self.d.temp_v = v 
+        if self.d.cf + v >= self.d.price: 
+            self.m.coin(1)
+        else: 
+            self.m.coin(0)
 
     def sugar(self): 
-        print('sugar called ')
+        self.m.additive(1)
 
     def tea(self): 
-        print('tea called ')
+        self.m.dispose_drink(1)
     
     def latte(self): 
-        print('latte called ')
+        self.m.dispose_drink(2)
     
     def insert_cups(self, n: int): 
-        print('insert cups called with ', n, ' cups ')
+        self.m.insert_cups(n)
 
     def set_price(self, p: float): 
-        print('set price called ')
+        self.d.temp_p = p 
+        self.m.set_price()
 
     def cancel(self): 
-        print('cancel called ')
-
+        self.m.cancel() 
 
 class vm2: 
     
-    def __init__(self): 
-        self.m = mda_efsm() 
-        self.d = DS2() 
-        self.af = CF2() 
+    def __init__(self, af, m):
+        self.af = af
+        self.m = m
+        self.d = self.af.d
 
     def CREATE(self, p: float): 
-        print('CREATE function called with ', p)
+        self.d.temp_p = p 
+        self.m.create() 
     
     def COIN(self, v: int): 
-        print('COIN function called with ', v)
+        self.d.temp_v = v 
+        if self.d.cf + v >= self.d.price: 
+            self.m.coin(1)
+        else: 
+            self.m.coin(0)
 
     def CARD(self, x: int): 
-        print('CARD called with ', x, 'funds ')
+        if x >= self.d.price: 
+            self.m.card() 
 
     def SUGAR(self): 
-        print('SUGAR called ')
+        self.m.additive(2)
 
     def CREAM(self): 
-        print('CREAM called ')
+        self.m.additive(1)
 
     def COFFEE(self): 
-        print('COFFEE called ')
+        self.m.dispose_drink(1)
     
     def InsertCups(self, n: int): 
-        print('InsertCups called with ', n, ' cups ')
+        self.m.insert_cups(n)
 
     def SetPrice(self, p: float): 
-        print('SetPrice called ')
+        self.d.temp_p = p 
+        self.m.set_price() 
 
     def CANCEL(self): 
-        print('CANCEL called ')
+        self.m.cancel() 
 
         
