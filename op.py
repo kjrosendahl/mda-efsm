@@ -16,18 +16,6 @@ class op:
         self.p6 = af.getDisposeDrink() 
         self.p7 = af.getDisposeAdditive() 
 
-
-    # def Initialize(self, af): 
-    #     # get pointer to data 
-    #     self.d = af.d 
-    #     # get pointers to action objects
-    #     self.p1 = af.getStorePrice() 
-    #     self.p2 = af.getZeroCF() 
-    #     self.p3 = af.getIncreaseCF() 
-    #     self.p4 = af.getReturnCoins()
-    #     self.p5 = af.getDisposeDrink() 
-    #     self.p6 = af.getDisposeAdditive() 
-
     def StorePrice(self): 
         self.p1.StorePrice(self.d)  
 

@@ -64,7 +64,7 @@ class ReturnCoins_1(ReturnCoins):
 
         
 # ------------------------ # 
-# DiposeFunds strategies 
+# ReturnFunds strategies 
 # ------------------------ # 
 class ReturnFunds(): 
 

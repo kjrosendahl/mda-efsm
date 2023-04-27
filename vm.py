@@ -1,10 +1,7 @@
-from mda import mda_efsm
-from absfact import CF1, CF2
-
 class vm1: 
     
     def __init__(self, af, m): 
-        # make concrete factory 
+        # set pointers 
         self.af = af
         self.m = m
         self.d = self.af.d
@@ -42,6 +39,7 @@ class vm1:
 class vm2: 
     
     def __init__(self, af, m):
+        # set pointers 
         self.af = af
         self.m = m
         self.d = self.af.d

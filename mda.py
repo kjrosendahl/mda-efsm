@@ -51,6 +51,12 @@ class mda_efsm:
 
     def additive(self, a: int): 
         self.S.additive(a) 
+
+        
+
+# ------------------------ # 
+# MDA-EFSM States  
+# ------------------------ # 
     
 class states(): 
 
@@ -85,6 +91,7 @@ class states():
 
     def additive(self, a: int): 
         pass 
+
 
 class start(states): 
 
