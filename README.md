@@ -4,7 +4,7 @@
 
 Project source code and executable for the MDA-EFSM for two implementations of Vending Machines, VM1 and VM2.
 
-To run the driver program, navigate to folder *dist* and click *driver.exe*. Alternatively, click [here](dist/driver.exe). 
+To run the driver program, navigate to folder *dist*, download and execute *driver.exe*. 
 
 Source code, surprisingly, can be found in the *source-code* folder. 
 
