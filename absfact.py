@@ -1,4 +1,8 @@
-from actions import StorePrice_1, ZeroCF_1, IncreaseCF_1, ReturnCoins_1, DisposeCoffee, DisposeTeaLatte, DisposeCreamSugar, DisposeSugar
+# ------------------------ # 
+# Abstract Factory Pattern 
+# ------------------------ # 
+
+from actions import StorePrice_1, ZeroCF_1, IncreaseCF_1, ReturnCoins_1, ReturnFunds_1, DisposeCoffee, DisposeTeaLatte, DisposeCreamSugar, DisposeSugar
 from data import data, DS1, DS2
 
 class abs_fact: 
@@ -44,6 +48,9 @@ class CF1(abs_fact):
     def getReturnCoins(self): 
         return ReturnCoins_1() 
     
+    def getReturnFunds(self): 
+        return ReturnFunds_1() 
+    
     def getDisposeDrink(self): 
         return DisposeTeaLatte() 
 
@@ -68,6 +75,9 @@ class CF2(abs_fact):
     
     def getReturnCoins(self): 
         return ReturnCoins_1() 
+    
+    def getReturnFunds(self): 
+        return ReturnFunds_1() 
     
     def getDisposeDrink(self): 
         return DisposeCoffee() 

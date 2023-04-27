@@ -1,3 +1,7 @@
+# ------------------------ # 
+# Abstract Factory + Strategy Pattern 
+# ------------------------ # 
+
 class op: 
 
     def __init__(self, af): 
@@ -8,28 +12,21 @@ class op:
         self.p2 = af.getZeroCF() 
         self.p3 = af.getIncreaseCF() 
         self.p4 = af.getReturnCoins() 
-        self.p5 = af.getDisposeDrink() 
-        self.p6 = af.getDisposeAdditive() 
+        self.p5 = af.getReturnFunds() 
+        self.p6 = af.getDisposeDrink() 
+        self.p7 = af.getDisposeAdditive() 
 
-    # def __init__(self): 
-    #     self.d = None 
-    #     self.p1 = None 
-    #     self.p2 = None 
-    #     self.p3 = None 
-    #     self.p4 = None 
-    #     self.p5 = None 
-    #     self.p6 = None 
 
-    def Initialize(self, af): 
-        # get pointer to data 
-        self.d = af.d 
-        # get pointers to action objects
-        self.p1 = af.getStorePrice() 
-        self.p2 = af.getZeroCF() 
-        self.p3 = af.getIncreaseCF() 
-        self.p4 = af.getReturnCoins()
-        self.p5 = af.getDisposeDrink() 
-        self.p6 = af.getDisposeAdditive() 
+    # def Initialize(self, af): 
+    #     # get pointer to data 
+    #     self.d = af.d 
+    #     # get pointers to action objects
+    #     self.p1 = af.getStorePrice() 
+    #     self.p2 = af.getZeroCF() 
+    #     self.p3 = af.getIncreaseCF() 
+    #     self.p4 = af.getReturnCoins()
+    #     self.p5 = af.getDisposeDrink() 
+    #     self.p6 = af.getDisposeAdditive() 
 
     def StorePrice(self): 
         self.p1.StorePrice(self.d)  
@@ -43,8 +40,11 @@ class op:
     def ReturnCoins(self): 
         self.p4.ReturnCoins(self.d) 
 
+    def ReturnFunds(self): 
+        self.p5.ReturnFunds(self.d) 
+
     def DisposeDrink(self, d): 
-        self.p5.DisposeDrink(d)
+        self.p6.DisposeDrink(d)
 
     def DisposeAdditive(self, A):
-        self.p6.DisposeAdditive(A)  
+        self.p7.DisposeAdditive(A)  

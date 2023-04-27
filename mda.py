@@ -1,5 +1,8 @@
+# ------------------------ # 
+# State Pattern 
+# ------------------------ # 
+
 from collections import defaultdict
-from op import op 
 
 class mda_efsm: 
     
@@ -17,14 +20,13 @@ class mda_efsm:
     def change_state(self, ID): 
         self.S = self.LS[ID] 
         
+        # print message relating to state 
         if ID == 1: 
             print('There are no cups!')
         elif ID == 2: 
             print('Idle...')
         elif ID == 3: 
             print('Ready to dispense!')
-
-        # print('Transition from state ', old, ' to state ', new)
     
     def create(self): 
         self.S.create() 
@@ -56,7 +58,7 @@ class states():
 
         # set MDA-EFSM pointer for state 
         self.m = m 
-        # add OP pointer 
+        # set OP pointer 
         self.p = op
 
     # abstract methods 
@@ -138,7 +140,7 @@ class ready(states):
         self.p.ReturnCoins() 
     
     def cancel(self): 
-        self.p.ReturnCoins() 
+        self.p.ReturnFunds() 
         self.p.ZeroCF() 
         # transition back to idle state 
         self.m.change_state(2)
@@ -146,6 +148,7 @@ class ready(states):
     def dispose_drink(self, d: int): 
         self.p.DisposeDrink(d)
         self.p.DisposeAdditive(self.m.A)
+        # decrease cups 
         self.m.cups -= 1 
         # if out of cups 
         if self.m.cups == 0: 
